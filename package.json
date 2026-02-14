@@ -1,6 +1,6 @@
 {
   "name": "@germanocosti/conforme-digitale-toolkit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "CLI OSS (Italia) per audit accessibilita base e report JSON",
   "type": "module",
   "bin": {

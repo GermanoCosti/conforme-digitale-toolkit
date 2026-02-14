@@ -21,6 +21,11 @@ _Niente di rilevante ancora._
 - Metadati pacchetto Python aggiornati (`pyproject.toml`).
 - Nomi exe/script aggiornati in `python-app/` per allineamento comandi.
 
+## [0.2.2] - 2026-02-14
+### Modificato
+- Fix campo `bin` in `package.json` (niente warning "script name was cleaned" in publish).
+- Workflow npm con diagnostica (`npm whoami`) per risolvere errori 403 in modo chiaro.
+
 ## [0.2.0] - 2026-02-14
 ### Aggiunto
 - Supporto CLI per analisi URL con `--url`.

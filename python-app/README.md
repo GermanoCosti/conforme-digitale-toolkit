@@ -32,8 +32,8 @@ python .\tests\run_tests.py
 Se vuoi installazione pacchetto:
 ```bash
 python -m pip install -e .
-conforme-audit --file ..\examples\sample.html --out .\report.json
-conforme-gui
+conforme-digitale --file ..\examples\sample.html --out .\report.json
+conforme-digitale-gui
 ```
 
 ## Build eseguibile Windows
@@ -43,11 +43,11 @@ cd python-app
 ```
 
 Dopo la build trovi:
-- `python-app\dist\conforme-audit.exe`
-- `python-app\dist\conforme-gui.exe`
+- `python-app\dist\conforme-digitale.exe`
+- `python-app\dist\conforme-digitale-gui.exe`
 
 ## Uso eseguibile
 ```powershell
-.\dist\conforme-audit.exe --url https://example.com --out .\report.json
-.\dist\conforme-gui.exe
+.\dist\conforme-digitale.exe --url https://example.com --out .\report.json
+.\dist\conforme-digitale-gui.exe
 ```

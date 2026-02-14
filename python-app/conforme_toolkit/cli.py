@@ -9,7 +9,7 @@ except ModuleNotFoundError:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        prog="conforme-audit",
+        prog="conforme-digitale",
         description="Audit accessibilita base su file HTML o URL.",
     )
     source = parser.add_mutually_exclusive_group(required=True)

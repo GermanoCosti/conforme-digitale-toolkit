@@ -10,7 +10,7 @@ Eseguire il primo audit accessibilita su un file HTML in meno di 5 minuti.
 ## Passi
 1. Vai nella cartella del progetto:
 ```bash
-cd accessibility-compliance-toolkit
+cd conforme-digitale-toolkit
 ```
 
 2. Installa dipendenze:

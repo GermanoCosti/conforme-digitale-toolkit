@@ -1,6 +1,36 @@
-# Accessibility Compliance Toolkit
+# Conforme Digitale Toolkit
 
 Toolkit open source per controlli accessibilita web di base, pensato per il contesto Italia/EU.
+
+## Installazione velocissima (senza clonare)
+### npm (consigliato per la CLI Node)
+```bash
+npm i -g @germanocosti/conforme-digitale-toolkit
+conforme-digitale --help
+```
+
+Esempio:
+```bash
+conforme-digitale --file ./examples/sample.html --out ./report.json
+```
+
+In alternativa, senza installare globalmente (npx):
+```bash
+npx -y @germanocosti/conforme-digitale-toolkit --help
+```
+
+### Python (PyPI)
+Quando pubblicato su PyPI (cartella `python-app/`), potrai installare cosi:
+```bash
+python -m pip install conforme-digitale-toolkit-germanocosti
+conforme-digitale --help
+conforme-digitale-gui
+```
+
+### Windows (EXE)
+Quando pubblicata una Release, nella pagina Releases troverai gli eseguibili:
+- `conforme-digitale.exe` (CLI)
+- `conforme-digitale-gui.exe` (interfaccia grafica)
 
 ## Provalo subito da GitHub
 ### Windows (Prompt dei comandi - CMD)
@@ -154,7 +184,7 @@ Se il progetto ti e utile, puoi sostenerlo qui:
 - `.github/pull_request_template.md`: template PR
 
 ## Stato
-Versione iniziale `0.1.0` pronta per primo rilascio pubblico.
+Versione `0.2.1` (preparazione pubblicazione npm/PyPI + build EXE in release).
 
 ## Per chi lo scarica per la prima volta
 Se sei un developer:

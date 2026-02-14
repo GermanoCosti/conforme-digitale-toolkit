@@ -6,21 +6,20 @@ Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, 
 
 ## [Unreleased]
 ### Aggiunto
-- Pagina supporto progetto: `docs/sostieni-il-progetto.md`.
-- Script `npm run setup` con creazione configurazione base e cartella report.
-- Script `npm run audit` per eseguire audit da `conforme.config.json`.
-- Prototipo Python in `python-app/` con CLI, test e script build `.exe`.
-- Interfaccia grafica Python (`python-app/conforme_toolkit/gui.py`).
-- Documento `docs/normativa-e-sanzioni.md` con riferimenti legali ufficiali.
-- Guida dedicata ai clienti non tecnici: `docs/per-clienti-non-tecnici.md`.
+_Niente di rilevante ancora._
 
 ### Modificato
-- Configurazione finanziamento aggiornata in `.github/FUNDING.yml`.
-- Link Discussions corretto in `.github/ISSUE_TEMPLATE/config.yml`.
-- Sezione finanziamento aggiornata nel `README.md`.
-- Rimossi riferimenti diretti a GitHub Sponsors non ancora approvato.
-- Documentazione aggiornata con flusso setup/audit.
-- README con sezione "Provalo subito da GitHub" e sintesi obblighi/sanzioni.
+_Niente di rilevante ancora._
+
+## [0.2.1] - 2026-02-14
+### Aggiunto
+- Preparazione pubblicazione npm (pacchetto scoped) con comando `conforme-digitale`.
+- Preparazione pubblicazione PyPI (pacchetto Python) con comandi `conforme-digitale` e `conforme-digitale-gui`.
+
+### Modificato
+- Metadati pacchetto npm aggiornati (repository, homepage, publishConfig).
+- Metadati pacchetto Python aggiornati (`pyproject.toml`).
+- Nomi exe/script aggiornati in `python-app/` per allineamento comandi.
 
 ## [0.2.0] - 2026-02-14
 ### Aggiunto

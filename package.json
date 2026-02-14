@@ -1,9 +1,10 @@
 {
-  "name": "accessibility-compliance-toolkit",
-  "version": "0.1.0",
-  "description": "CLI OSS per audit accessibilita base e report JSON",
+  "name": "@germanocosti/conforme-digitale-toolkit",
+  "version": "0.2.1",
+  "description": "CLI OSS (Italia) per audit accessibilita base e report JSON",
   "type": "module",
   "bin": {
+    "conforme-digitale": "./src/cli.js",
     "a11y-it": "./src/cli.js"
   },
   "scripts": {
@@ -14,9 +15,23 @@
   "keywords": [
     "accessibility",
     "wcag",
+    "accessibilita",
     "italy",
     "compliance",
-    "cli"
+    "cli",
+    "eaa",
+    "agid"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GermanoCosti/conforme-digitale-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GermanoCosti/conforme-digitale-toolkit/issues"
+  },
+  "homepage": "https://github.com/GermanoCosti/conforme-digitale-toolkit#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT"
 }

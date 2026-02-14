@@ -3,14 +3,28 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "conforme-digitale-python"
-version = "0.1.0"
-description = "CLI Python per audit accessibilita base"
+name = "conforme-digitale-toolkit-germanocosti"
+version = "0.2.1"
+description = "Toolkit Python (Italia) per audit accessibilita base + GUI"
+readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.10"
+authors = [{ name = "Germano Costi" }]
+keywords = ["accessibilita", "accessibility", "wcag", "italia", "conformita", "eaa"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/GermanoCosti/conforme-digitale-toolkit"
+Repository = "https://github.com/GermanoCosti/conforme-digitale-toolkit"
+Issues = "https://github.com/GermanoCosti/conforme-digitale-toolkit/issues"
 
 [project.scripts]
-conforme-audit = "conforme_toolkit.cli:main"
-conforme-gui = "conforme_toolkit.gui:main"
+conforme-digitale = "conforme_toolkit.cli:main"
+conforme-digitale-gui = "conforme_toolkit.gui:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

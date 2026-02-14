@@ -5,6 +5,13 @@ Tutte le modifiche rilevanti a questo progetto saranno documentate in questo fil
 Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, `Corretto`.
 
 ## [Unreleased]
+### Aggiunto
+- Pagina supporto progetto: `docs/sostieni-il-progetto.md`.
+
+### Modificato
+- Configurazione finanziamento aggiornata in `.github/FUNDING.yml`.
+- Link Discussions corretto in `.github/ISSUE_TEMPLATE/config.yml`.
+- Sezione finanziamento aggiornata nel `README.md`.
 
 ## [0.2.0] - 2026-02-14
 ### Aggiunto

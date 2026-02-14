@@ -76,6 +76,7 @@ node src/cli.js --url https://example.com --out ./report.json
 - `tests/run.js`: test base
 - `docs/roadmap.md`: piano evolutivo prodotto
 - `docs/getting-started-it.md`: guida rapida in italiano
+- `docs/sostieni-il-progetto.md`: modalita di supporto
 
 ## Monetizzazione consigliata (ibrida)
 1. OSS gratuito per acquisizione utenti.
@@ -83,7 +84,9 @@ node src/cli.js --url https://example.com --out ./report.json
 3. Servizio fatto-per-te: configurazione + correzioni per agenzie/PMI.
 
 ## Finanziamento
-Configura `.github/FUNDING.yml` con il tuo username GitHub Sponsors.
+Se il progetto ti e utile, puoi sostenerlo qui:
+- GitHub Sponsors: `https://github.com/sponsors/GermanoCosti`
+- Pagina supporto: `docs/sostieni-il-progetto.md`
 
 ## Community e governance
 - `LICENSE`: licenza MIT

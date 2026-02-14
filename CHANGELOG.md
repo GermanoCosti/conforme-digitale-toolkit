@@ -10,6 +10,7 @@ Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, 
 - Script `npm run setup` con creazione configurazione base e cartella report.
 - Script `npm run audit` per eseguire audit da `conforme.config.json`.
 - Prototipo Python in `python-app/` con CLI, test e script build `.exe`.
+- Interfaccia grafica Python (`python-app/conforme_toolkit/gui.py`).
 
 ### Modificato
 - Configurazione finanziamento aggiornata in `.github/FUNDING.yml`.

@@ -1,35 +1,10 @@
 import argparse
-import json
-import pathlib
 import sys
-import urllib.error
-import urllib.request
 
 try:
-    from conforme_toolkit.audit import audit_html
+    from conforme_toolkit.service import run_audit, write_report
 except ModuleNotFoundError:
-    from audit import audit_html
-
-
-def _read_from_file(file_path: str) -> str:
-    path = pathlib.Path(file_path).resolve()
-    if not path.exists():
-        raise FileNotFoundError(f"File non trovato: {path}")
-    return path.read_text(encoding="utf-8")
-
-
-def _read_from_url(url: str) -> str:
-    if not (url.startswith("http://") or url.startswith("https://")):
-        raise ValueError("URL non valido. Usa un indirizzo che inizi con http:// o https://")
-    req = urllib.request.Request(url, headers={"User-Agent": "conforme-toolkit/0.1"})
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            if resp.status != 200:
-                raise RuntimeError(f"Download fallito: HTTP {resp.status}")
-            data = resp.read()
-            return data.decode("utf-8", errors="replace")
-    except urllib.error.URLError as exc:
-        raise RuntimeError(f"Errore durante il download URL: {exc}") from exc
+    from service import run_audit, write_report
 
 
 def main() -> int:
@@ -44,8 +19,7 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        html = _read_from_file(args.file) if args.file else _read_from_url(args.url)
-        report = audit_html(html)
+        report = run_audit("file" if args.file else "url", args.file or args.url)
     except Exception as exc:  # noqa: BLE001
         print(f"Errore: {exc}", file=sys.stderr)
         return 1
@@ -58,9 +32,7 @@ def main() -> int:
     print(f"Alta: {high} | Media: {medium}")
 
     if args.out:
-        out_path = pathlib.Path(args.out).resolve()
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+        out_path = write_report(report, args.out)
         print(f"Report salvato in: {out_path}")
 
     return 0

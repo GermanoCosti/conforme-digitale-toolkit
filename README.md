@@ -95,7 +95,7 @@ node src/cli.js --url https://example.com --out ./report.json
 - `docs/roadmap.md`: piano evolutivo prodotto
 - `docs/getting-started-it.md`: guida rapida in italiano
 - `docs/sostieni-il-progetto.md`: modalita di supporto
-- `python-app/`: prototipo Python con build `.exe`
+- `python-app/`: prototipo Python CLI + interfaccia grafica con build `.exe`
 
 ## Monetizzazione consigliata (ibrida)
 1. OSS gratuito per acquisizione utenti.

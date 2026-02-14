@@ -10,6 +10,7 @@ requires-python = ">=3.10"
 
 [project.scripts]
 conforme-audit = "conforme_toolkit.cli:main"
+conforme-gui = "conforme_toolkit.gui:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

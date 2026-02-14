@@ -43,6 +43,10 @@ node src/cli.js --file ./examples/sample.html --out ./report.json
 ```
 
 ```bash
+node src/cli.js --url https://example.com --out ./report.json
+```
+
+```bash
 node src/cli.js --help
 ```
 
@@ -63,6 +67,7 @@ Report salvato in: .../report.json
 ```bash
 node src/cli.js --file ./examples/sample.html --out ./report.json
 node src/cli.js --file ./examples/sample-good.html
+node src/cli.js --url https://example.com --out ./report.json
 ```
 
 ## Struttura
@@ -108,5 +113,7 @@ Se sei un consulente/agenzia:
    verifica che Node.js sia installato e riapri il terminale.
 2. `File non trovato`:
    controlla percorso passato a `--file`.
-3. Nessun output JSON:
+3. `URL non valido`:
+   usa un indirizzo completo con `http://` o `https://`.
+4. Nessun output JSON:
    aggiungi `--out ./report.json`.

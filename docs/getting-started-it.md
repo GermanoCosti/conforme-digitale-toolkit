@@ -45,3 +45,8 @@ node src/cli.js --file ./examples/sample.html --out ./report.json
 ```bash
 node src/cli.js --file ./tuo-file.html --out ./report.json
 ```
+
+## Uso su un sito (URL)
+```bash
+node src/cli.js --url https://esempio.it --out ./report.json
+```

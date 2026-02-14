@@ -5,6 +5,11 @@ Tutte le modifiche rilevanti a questo progetto saranno documentate in questo fil
 Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, `Corretto`.
 
 ## [Unreleased]
+### Aggiunto
+- Supporto CLI per analisi URL con `--url`.
+
+### Modificato
+- Documentazione aggiornata con esempi `--url`.
 
 ## [0.1.1] - 2026-02-14
 ### Aggiunto

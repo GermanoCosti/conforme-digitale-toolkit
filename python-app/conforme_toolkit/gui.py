@@ -2,7 +2,10 @@ import pathlib
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
-from conforme_toolkit.service import run_audit, write_report
+try:
+    from conforme_toolkit.service import run_audit, write_report
+except ModuleNotFoundError:
+    from service import run_audit, write_report
 
 
 class App(tk.Tk):

@@ -16,7 +16,7 @@ python .\conforme_toolkit\cli.py --file ..\examples\sample.html --out .\report.j
 ## Interfaccia grafica
 ```bash
 cd python-app
-python .\conforme_toolkit\gui.py
+python -m conforme_toolkit.gui
 ```
 
 Nella finestra puoi:

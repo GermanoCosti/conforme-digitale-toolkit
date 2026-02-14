@@ -5,11 +5,15 @@ Tutte le modifiche rilevanti a questo progetto saranno documentate in questo fil
 Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, `Corretto`.
 
 ## [Unreleased]
+
+## [0.2.0] - 2026-02-14
 ### Aggiunto
 - Supporto CLI per analisi URL con `--url`.
+- `package-lock.json` per installazioni riproducibili.
 
 ### Modificato
 - Documentazione aggiornata con esempi `--url`.
+- Guida rapida estesa con uso su siti reali.
 
 ## [0.1.1] - 2026-02-14
 ### Aggiunto

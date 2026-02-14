@@ -2,6 +2,33 @@
 
 Toolkit open source per controlli accessibilita web di base, pensato per il contesto Italia/EU.
 
+## Provalo subito da GitHub
+### Windows (Prompt dei comandi - CMD)
+```bat
+git clone https://github.com/GermanoCosti/conforme-digitale-toolkit.git
+cd /d conforme-digitale-toolkit
+npm install
+npm run setup
+npm run audit
+type .\report\report.json
+```
+
+### Windows (PowerShell)
+```powershell
+git clone https://github.com/GermanoCosti/conforme-digitale-toolkit.git
+Set-Location .\conforme-digitale-toolkit
+npm install
+npm run setup
+npm run audit
+Get-Content .\report\report.json
+```
+
+### Interfaccia grafica Python
+```powershell
+Set-Location .\python-app
+python -m conforme_toolkit.gui
+```
+
 ## Avvio rapido (2 minuti)
 1. Installa Node.js (versione 18+ consigliata).
 2. Apri terminale nella cartella progetto.
@@ -32,6 +59,15 @@ Nel repository trovi anche un esempio:
 Molte PMI hanno siti con problemi evidenti di accessibilita e nessun processo minimo di controllo.
 Questo progetto offre un primo audit automatico ripetibile da CLI.
 
+## Obbligo normativo (Italia/UE)
+- Dal `28 giugno 2025` si applicano le regole di accessibilita previste dal Decreto Legislativo 27 maggio 2022, n. 82 (attuazione Direttiva UE 2019/882).
+- In Italia, AGID richiede inoltre la pubblicazione della dichiarazione di accessibilita entro il `23 settembre` di ogni anno per i soggetti interessati.
+- Le sanzioni previste dalla normativa possono essere rilevanti:
+  - per alcuni casi previsti dal D.Lgs. 82/2022: da `5.000` a `40.000` euro, o da `2.500` a `30.000` euro;
+  - per i soggetti indicati dalla Legge 9 gennaio 2004, n. 4, art. 3 comma 1-bis: sanzioni fino al `5%` del fatturato.
+
+Approfondimento con riferimenti ufficiali: `docs/normativa-e-sanzioni.md`.
+
 ## Cosa fa (versione minima)
 - Cerca immagini senza `alt`.
 - Cerca campi input senza label associata.
@@ -44,6 +80,7 @@ Questo progetto offre un primo audit automatico ripetibile da CLI.
 ## Cosa non fa (ancora)
 - Non sostituisce audit manuale WCAG completo.
 - Non emette certificazioni legali.
+- Non sostituisce consulenza legale.
 
 ## Installazione locale
 ```bash
@@ -95,6 +132,7 @@ node src/cli.js --url https://example.com --out ./report.json
 - `docs/roadmap.md`: piano evolutivo prodotto
 - `docs/getting-started-it.md`: guida rapida in italiano
 - `docs/sostieni-il-progetto.md`: modalita di supporto
+- `docs/normativa-e-sanzioni.md`: riferimenti normativi e sanzioni (Italia/UE)
 - `python-app/`: prototipo Python CLI + interfaccia grafica con build `.exe`
 
 ## Monetizzazione consigliata (ibrida)

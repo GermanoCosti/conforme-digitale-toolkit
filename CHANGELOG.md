@@ -7,12 +7,15 @@ Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, 
 ## [Unreleased]
 ### Aggiunto
 - Pagina supporto progetto: `docs/sostieni-il-progetto.md`.
+- Script `npm run setup` con creazione configurazione base e cartella report.
+- Script `npm run audit` per eseguire audit da `conforme.config.json`.
 
 ### Modificato
 - Configurazione finanziamento aggiornata in `.github/FUNDING.yml`.
 - Link Discussions corretto in `.github/ISSUE_TEMPLATE/config.yml`.
 - Sezione finanziamento aggiornata nel `README.md`.
 - Rimossi riferimenti diretti a GitHub Sponsors non ancora approvato.
+- Documentazione aggiornata con flusso setup/audit.
 
 ## [0.2.0] - 2026-02-14
 ### Aggiunto

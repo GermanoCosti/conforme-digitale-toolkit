@@ -33,6 +33,19 @@ node src/cli.js --file ./examples/sample.html --out ./report.json
 - `issueCount`: numero totale problemi
 - `issues[]`: dettaglio per regola e severita
 
+## Modalita consigliata con configurazione
+1. Inizializza:
+```bash
+npm run setup
+```
+2. Esegui audit da configurazione:
+```bash
+npm run audit
+```
+3. Modifica `conforme.config.json` per scegliere:
+- file locale (`"tipo": "file"`)
+- sito web (`"tipo": "url"`)
+
 ## Regole disponibili nella versione minima
 - `img-alt`
 - `input-label`

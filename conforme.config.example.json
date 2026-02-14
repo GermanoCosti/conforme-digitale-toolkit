@@ -1,0 +1,7 @@
+{
+  "sorgente": {
+    "tipo": "file",
+    "valore": "./examples/sample.html"
+  },
+  "output": "./report/report.json"
+}

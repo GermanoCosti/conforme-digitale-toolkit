@@ -7,7 +7,9 @@
     "a11y-it": "./src/cli.js"
   },
   "scripts": {
-    "test": "node tests/run.js"
+    "test": "node tests/run.js",
+    "setup": "node src/setup.js",
+    "audit": "node src/run-audit.js"
   },
   "keywords": [
     "accessibility",

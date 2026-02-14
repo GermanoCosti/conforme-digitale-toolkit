@@ -1,3 +1,5 @@
 node_modules/
 report.json
 *.log
+report/
+conforme.config.json

@@ -15,6 +15,19 @@ node src/cli.js --file ./examples/sample.html --out ./report.json
 
 4. Apri `report.json` per vedere i problemi trovati.
 
+## Avvio con configurazione (consigliato)
+```bash
+npm run setup
+npm run audit
+```
+
+Questo crea:
+- `conforme.config.json` (configurazione audit)
+- `report/report.json` (risultato)
+
+Nel repository trovi anche un esempio:
+- `conforme.config.example.json`
+
 ## Perche esiste
 Molte PMI hanno siti con problemi evidenti di accessibilita e nessun processo minimo di controllo.
 Questo progetto offre un primo audit automatico ripetibile da CLI.
@@ -50,6 +63,11 @@ node src/cli.js --url https://example.com --out ./report.json
 node src/cli.js --help
 ```
 
+```bash
+npm run setup
+npm run audit
+```
+
 Risultato atteso:
 - riepilogo in console
 - file JSON con issue trovate
@@ -82,6 +100,7 @@ node src/cli.js --url https://example.com --out ./report.json
 1. OSS gratuito per acquisizione utenti.
 2. Versione Pro: scansione multipagina, pannello, esportazione PDF.
 3. Servizio fatto-per-te: configurazione + correzioni per agenzie/PMI.
+4. Setup assistito su contributo volontario (il tool base resta gratuito).
 
 ## Finanziamento
 Se il progetto ti e utile, puoi sostenerlo qui:

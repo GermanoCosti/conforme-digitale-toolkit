@@ -12,6 +12,7 @@ Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, 
 - Prototipo Python in `python-app/` con CLI, test e script build `.exe`.
 - Interfaccia grafica Python (`python-app/conforme_toolkit/gui.py`).
 - Documento `docs/normativa-e-sanzioni.md` con riferimenti legali ufficiali.
+- Guida dedicata ai clienti non tecnici: `docs/per-clienti-non-tecnici.md`.
 
 ### Modificato
 - Configurazione finanziamento aggiornata in `.github/FUNDING.yml`.

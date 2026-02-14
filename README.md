@@ -133,6 +133,7 @@ node src/cli.js --url https://example.com --out ./report.json
 - `docs/getting-started-it.md`: guida rapida in italiano
 - `docs/sostieni-il-progetto.md`: modalita di supporto
 - `docs/normativa-e-sanzioni.md`: riferimenti normativi e sanzioni (Italia/UE)
+- `docs/per-clienti-non-tecnici.md`: guida semplice per clienti e titolari attivita
 - `python-app/`: prototipo Python CLI + interfaccia grafica con build `.exe`
 
 ## Monetizzazione consigliata (ibrida)

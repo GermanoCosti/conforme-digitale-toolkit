@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conforme-digitale-python"
+version = "0.1.0"
+description = "CLI Python per audit accessibilita base"
+requires-python = ">=3.10"
+
+[project.scripts]
+conforme-audit = "conforme_toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]

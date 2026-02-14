@@ -21,8 +21,16 @@ jobs:
 
       - run: npm ci
 
+      - name: Diagnostica autenticazione npm
+        run: |
+          node -v
+          npm -v
+          npm ping
+          npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Pubblica su npm
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-

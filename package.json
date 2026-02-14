@@ -4,8 +4,8 @@
   "description": "CLI OSS (Italia) per audit accessibilita base e report JSON",
   "type": "module",
   "bin": {
-    "conforme-digitale": "./src/cli.js",
-    "a11y-it": "./src/cli.js"
+    "conforme-digitale": "src/cli.js",
+    "a11y-it": "src/cli.js"
   },
   "scripts": {
     "test": "node tests/run.js",

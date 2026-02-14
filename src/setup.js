@@ -19,12 +19,26 @@ if (!fs.existsSync(configPath)) {
       tipo: "file",
       valore: "./examples/sample.html"
     },
-    output: "./report/report.json"
+    output: "./report/report.json",
+    outputMarkdown: "./report/report.md"
   };
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2), "utf8");
   console.log(`Creato file configurazione: ${configPath}`);
 } else {
-  console.log(`Configurazione gia presente: ${configPath}`);
+  // Se esiste gia, non sovrascrivere. Aggiungi solo chiavi mancanti.
+  try {
+    const raw = fs.readFileSync(configPath, "utf8");
+    const cfg = JSON.parse(raw);
+    if (!cfg.outputMarkdown) {
+      cfg.outputMarkdown = "./report/report.md";
+      fs.writeFileSync(configPath, JSON.stringify(cfg, null, 2), "utf8");
+      console.log(`Aggiornata configurazione (aggiunto outputMarkdown): ${configPath}`);
+    } else {
+      console.log(`Configurazione gia presente: ${configPath}`);
+    }
+  } catch {
+    console.log(`Configurazione gia presente: ${configPath}`);
+  }
 }
 
 console.log("Setup completato.");

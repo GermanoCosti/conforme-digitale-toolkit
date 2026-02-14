@@ -1,5 +1,7 @@
 node_modules/
 report.json
+report-*.json
+report-*.md
 *.log
 report/
 conforme.config.json

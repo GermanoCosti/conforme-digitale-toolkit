@@ -33,6 +33,7 @@ Se vuoi installazione pacchetto:
 ```bash
 python -m pip install -e .
 conforme-digitale --file ..\examples\sample.html --out .\report.json
+conforme-digitale --file ..\examples\sample.html --out .\report.json --out-md .\report.md
 conforme-digitale-gui
 ```
 

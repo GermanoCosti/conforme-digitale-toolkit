@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { auditHtml } from "./audit.js";
+import { renderReportMarkdown } from "./report-md.js";
 
 function getArg(name) {
   const index = process.argv.findIndex((a) => a === name);
@@ -36,6 +37,7 @@ async function readStdinUtf8() {
 const file = getArg("--file");
 const url = getArg("--url");
 const out = getArg("--out");
+const outMd = getArg("--out-md");
 const stdin = process.argv.includes("--stdin");
 const help = process.argv.includes("--help") || process.argv.includes("-h");
 
@@ -43,6 +45,10 @@ if (help) {
   console.log("Utilizzo: node src/cli.js --file ./pagina.html [--out ./report.json]");
   console.log("      oppure: node src/cli.js --url https://esempio.it [--out ./report.json]");
   console.log("      oppure: (pipe) ... | node src/cli.js --stdin [--out ./report.json]");
+  console.log("");
+  console.log("Opzioni output:");
+  console.log("  --out     Scrive report JSON");
+  console.log("  --out-md  Scrive report Markdown (leggibile)");
   process.exit(0);
 }
 
@@ -119,4 +125,12 @@ if (out) {
   const outPath = path.resolve(process.cwd(), out);
   fs.writeFileSync(outPath, JSON.stringify(report, null, 2), "utf8");
   console.log(`Report salvato in: ${outPath}`);
+}
+
+if (outMd) {
+  const outPath = path.resolve(process.cwd(), outMd);
+  const sourceLabel = file ? `file:${file}` : url ? `url:${url}` : "stdin";
+  const md = renderReportMarkdown({ report, sorgente: sourceLabel });
+  fs.writeFileSync(outPath, md, "utf8");
+  console.log(`Report Markdown salvato in: ${outPath}`);
 }

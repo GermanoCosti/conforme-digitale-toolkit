@@ -26,6 +26,15 @@ _Niente di rilevante ancora._
 - Fix campo `bin` in `package.json` (niente warning "script name was cleaned" in publish).
 - Workflow npm con diagnostica (`npm whoami`) per risolvere errori 403 in modo chiaro.
 
+## [0.2.3] - 2026-02-14
+### Aggiunto
+- Output Markdown leggibile con `--out-md` (Node e Python).
+- Supporto `--stdin` in CLI Node (utile se `--url` e' bloccato da proxy/firewall).
+
+### Modificato
+- Calcolo punteggio migliorato con pesi per severita (Alta/Media).
+- `npm run setup/audit` ora genera anche `report/report.md` di default.
+
 ## [0.2.0] - 2026-02-14
 ### Aggiunto
 - Supporto CLI per analisi URL con `--url`.

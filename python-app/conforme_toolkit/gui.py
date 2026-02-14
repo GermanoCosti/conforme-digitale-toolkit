@@ -3,9 +3,9 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 try:
-    from conforme_toolkit.service import run_audit, write_report
+    from conforme_toolkit.service import run_audit, write_report, write_report_md
 except ModuleNotFoundError:
-    from service import run_audit, write_report
+    from service import run_audit, write_report, write_report_md
 
 
 class App(tk.Tk):
@@ -18,6 +18,7 @@ class App(tk.Tk):
         self.source_type = tk.StringVar(value="file")
         self.source_value = tk.StringVar(value="")
         self.output_value = tk.StringVar(value=str(pathlib.Path("report-python.json").resolve()))
+        self.output_md_value = tk.StringVar(value=str(pathlib.Path("report-python.md").resolve()))
 
         self._build_ui()
 
@@ -43,8 +44,13 @@ class App(tk.Tk):
 
         out_frame = ttk.LabelFrame(frame, text="Output")
         out_frame.pack(fill="x", pady=(0, 10))
-        ttk.Entry(out_frame, textvariable=self.output_value).grid(row=0, column=0, sticky="ew", padx=8, pady=8)
-        ttk.Button(out_frame, text="Scegli file", command=self._choose_output).grid(row=0, column=1, padx=8, pady=8)
+        ttk.Label(out_frame, text="JSON").grid(row=0, column=0, sticky="w", padx=8, pady=(8, 0))
+        ttk.Entry(out_frame, textvariable=self.output_value).grid(row=1, column=0, sticky="ew", padx=8, pady=(0, 8))
+        ttk.Button(out_frame, text="Scegli file", command=self._choose_output).grid(row=1, column=1, padx=8, pady=(0, 8))
+
+        ttk.Label(out_frame, text="Markdown (opzionale)").grid(row=2, column=0, sticky="w", padx=8, pady=(8, 0))
+        ttk.Entry(out_frame, textvariable=self.output_md_value).grid(row=3, column=0, sticky="ew", padx=8, pady=(0, 8))
+        ttk.Button(out_frame, text="Scegli file", command=self._choose_output_md).grid(row=3, column=1, padx=8, pady=(0, 8))
         out_frame.columnconfigure(0, weight=1)
 
         actions = ttk.Frame(frame)
@@ -89,6 +95,16 @@ class App(tk.Tk):
         if path:
             self.output_value.set(path)
 
+    def _choose_output_md(self):
+        path = filedialog.asksaveasfilename(
+            title="Salva report Markdown",
+            defaultextension=".md",
+            filetypes=[("Markdown", "*.md"), ("Tutti i file", "*.*")],
+            initialfile="report-python.md",
+        )
+        if path:
+            self.output_md_value.set(path)
+
     def _set_output(self, text: str):
         self.output_text.configure(state="normal")
         self.output_text.delete("1.0", tk.END)
@@ -99,6 +115,7 @@ class App(tk.Tk):
         source_type = self.source_type.get()
         source_value = self.source_value.get().strip()
         out_path = self.output_value.get().strip()
+        out_md_path = self.output_md_value.get().strip()
 
         if not source_value:
             messagebox.showerror("Errore", "Indica una sorgente valida.")
@@ -110,6 +127,9 @@ class App(tk.Tk):
         try:
             report = run_audit(source_type, source_value)
             saved = write_report(report, out_path)
+            saved_md = None
+            if out_md_path:
+                saved_md = write_report_md(report, out_md_path, sorgente=f"{source_type}:{source_value}")
         except Exception as exc:  # noqa: BLE001
             messagebox.showerror("Errore analisi", str(exc))
             return
@@ -128,8 +148,13 @@ class App(tk.Tk):
             lines.append("Nessun problema rilevato.")
         lines.append("")
         lines.append(f"Report salvato in: {saved}")
+        if saved_md:
+            lines.append(f"Report Markdown salvato in: {saved_md}")
         self._set_output("\n".join(lines))
-        messagebox.showinfo("Analisi completata", f"Report salvato in:\n{saved}")
+        msg = f"Report salvato in:\n{saved}"
+        if saved_md:
+            msg += f"\n\nReport Markdown salvato in:\n{saved_md}"
+        messagebox.showinfo("Analisi completata", msg)
 
 
 def main() -> int:

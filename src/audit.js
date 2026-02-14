@@ -181,8 +181,14 @@ export function auditHtml(html) {
     });
   }
 
+  const highCount = issues.filter((i) => i.severity === "high").length;
+  const mediumCount = issues.filter((i) => i.severity === "medium").length;
+
+  // Punteggio: pesi diversi per severita' (evita di crollare a 0 con poche issue "medie").
+  const score = Math.max(0, 100 - highCount * 12 - mediumCount * 4);
+
   return {
-    score: Math.max(0, 100 - issues.length * 15),
+    score,
     issueCount: issues.length,
     issues
   };

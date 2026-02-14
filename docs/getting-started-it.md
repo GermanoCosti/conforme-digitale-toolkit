@@ -42,6 +42,9 @@ npm run setup
 ```bash
 npm run audit
 ```
+Questo genera (di default):
+- `report/report.json` (report JSON)
+- `report/report.md` (report leggibile)
 3. Modifica `conforme.config.json` per scegliere:
 - file locale (`"tipo": "file"`)
 - sito web (`"tipo": "url"`)
@@ -53,6 +56,8 @@ npm run audit
 - `page-lang`
 - `heading-h1`
 - `link-name`
+- `dichiarazione-accessibilita`
+- `feedback-accessibilita`
 
 ## Uso sul tuo file
 ```bash

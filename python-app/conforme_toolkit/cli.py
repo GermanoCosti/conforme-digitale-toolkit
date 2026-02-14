@@ -2,9 +2,9 @@ import argparse
 import sys
 
 try:
-    from conforme_toolkit.service import run_audit, write_report
+    from conforme_toolkit.service import run_audit, write_report, write_report_md
 except ModuleNotFoundError:
-    from service import run_audit, write_report
+    from service import run_audit, write_report, write_report_md
 
 
 def main() -> int:
@@ -16,6 +16,7 @@ def main() -> int:
     source.add_argument("--file", help="Percorso file HTML locale")
     source.add_argument("--url", help="URL pagina web da analizzare")
     parser.add_argument("--out", help="Percorso file JSON output")
+    parser.add_argument("--out-md", help="Percorso file Markdown output (leggibile)")
     args = parser.parse_args()
 
     try:
@@ -34,6 +35,11 @@ def main() -> int:
     if args.out:
         out_path = write_report(report, args.out)
         print(f"Report salvato in: {out_path}")
+
+    if args.out_md:
+        sorgente = f"file:{args.file}" if args.file else f"url:{args.url}" if args.url else None
+        out_path = write_report_md(report, args.out_md, sorgente=sorgente)
+        print(f"Report Markdown salvato in: {out_path}")
 
     return 0
 

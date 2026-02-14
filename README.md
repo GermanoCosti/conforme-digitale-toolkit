@@ -81,6 +81,7 @@ npm run audit
 Questo crea:
 - `conforme.config.json` (configurazione audit)
 - `report/report.json` (risultato)
+- `report/report.md` (report leggibile)
 
 Nel repository trovi anche un esempio:
 - `conforme.config.example.json`
@@ -126,6 +127,10 @@ node src/cli.js --file ./examples/sample.html --out ./report.json
 
 ```bash
 node src/cli.js --url https://example.com --out ./report.json
+```
+
+```bash
+node src/cli.js --url https://example.com --out ./report.json --out-md ./report.md
 ```
 
 ```bash

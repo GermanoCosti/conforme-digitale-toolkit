@@ -23,6 +23,7 @@ try {
 const sourceType = config?.sorgente?.tipo;
 const sourceValue = config?.sorgente?.valore;
 const out = config?.output || "./report/report.json";
+const outMd = config?.outputMarkdown || null;
 
 if (!sourceType || !sourceValue) {
   console.error("Configurazione incompleta: servono sorgente.tipo e sorgente.valore.");
@@ -42,6 +43,9 @@ if (sourceType === "file") {
 }
 
 args.push("--out", out);
+if (outMd) {
+  args.push("--out-md", outMd);
+}
 
 const outDir = path.dirname(path.resolve(cwd, out));
 fs.mkdirSync(outDir, { recursive: true });

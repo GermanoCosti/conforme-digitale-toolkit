@@ -189,8 +189,12 @@ def audit_html(html: str) -> dict:
             }
         )
 
+    high_count = sum(1 for i in issues if i.get("severity") == "high")
+    medium_count = sum(1 for i in issues if i.get("severity") == "medium")
+    score = max(0, 100 - high_count * 12 - medium_count * 4)
+
     return {
-        "score": max(0, 100 - len(issues) * 15),
+        "score": score,
         "issueCount": len(issues),
         "issues": issues,
     }

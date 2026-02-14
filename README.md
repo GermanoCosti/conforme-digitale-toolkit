@@ -208,5 +208,11 @@ Se sei un consulente/agenzia:
    controlla percorso passato a `--file`.
 3. `URL non valido`:
    usa un indirizzo completo con `http://` o `https://`.
-4. Nessun output JSON:
+4. `fetch failed` con `--url` (Windows/reti aziendali/proxy):
+   - prova la modalita `--file` oppure usa il fallback via PowerShell:
+     ```powershell
+     (Invoke-WebRequest https://example.com).Content | node .\src\cli.js --stdin --out .\report.json
+     ```
+   - in alternativa, salva la pagina HTML e analizzala con `--file`.
+5. Nessun output JSON:
    aggiungi `--out ./report.json`.

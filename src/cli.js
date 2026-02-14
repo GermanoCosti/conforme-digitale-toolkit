@@ -16,7 +16,7 @@ const out = getArg("--out");
 const help = process.argv.includes("--help") || process.argv.includes("-h");
 
 if (help) {
-  console.log("Uso: node src/cli.js --file ./pagina.html [--out ./report.json]");
+  console.log("Utilizzo: node src/cli.js --file ./pagina.html [--out ./report.json]");
   process.exit(0);
 }
 
@@ -35,11 +35,11 @@ const html = fs.readFileSync(inputPath, "utf8");
 const report = auditHtml(html);
 
 console.log("Audit completato.");
-console.log(`Score: ${report.score}`);
-console.log(`Issue: ${report.issueCount}`);
+console.log(`Punteggio: ${report.score}`);
+console.log(`Problemi: ${report.issueCount}`);
 const highCount = report.issues.filter((i) => i.severity === "high").length;
 const mediumCount = report.issues.filter((i) => i.severity === "medium").length;
-console.log(`High: ${highCount} | Medium: ${mediumCount}`);
+console.log(`Alta: ${highCount} | Media: ${mediumCount}`);
 
 if (out) {
   const outPath = path.resolve(process.cwd(), out);

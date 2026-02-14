@@ -3,7 +3,8 @@
 Se questo toolkit ti aiuta nel lavoro, puoi contribuire allo sviluppo.
 
 ## Modalita disponibili
-- GitHub Sponsors: `https://github.com/sponsors/GermanoCosti`
+- Al momento usa questa pagina come riferimento per il supporto.
+- Quando GitHub Sponsors sara approvato, verra aggiunto qui il link diretto.
 
 ## Come viene usato il supporto
 - miglioramento regole di analisi

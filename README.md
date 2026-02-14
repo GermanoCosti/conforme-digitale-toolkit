@@ -85,7 +85,6 @@ node src/cli.js --url https://example.com --out ./report.json
 
 ## Finanziamento
 Se il progetto ti e utile, puoi sostenerlo qui:
-- GitHub Sponsors: `https://github.com/sponsors/GermanoCosti`
 - Pagina supporto: `docs/sostieni-il-progetto.md`
 
 ## Community e governance

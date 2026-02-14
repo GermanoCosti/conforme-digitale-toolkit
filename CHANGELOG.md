@@ -5,6 +5,8 @@ Tutte le modifiche rilevanti a questo progetto saranno documentate in questo fil
 Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, `Corretto`.
 
 ## [Unreleased]
+
+## [0.1.1] - 2026-02-14
 ### Aggiunto
 - Nuove regole audit:
   - `page-lang` per verifica attributo `lang` su `<html>`
@@ -12,11 +14,13 @@ Il formato segue, in modo semplificato, le categorie: `Aggiunto`, `Modificato`, 
   - `link-name` per link senza nome accessibile
 - Esempi HTML pronti in `examples/sample.html` e `examples/sample-good.html`.
 - File `.gitignore` con esclusioni base.
+- Guida rapida in italiano: `docs/getting-started-it.md`.
 
 ### Modificato
 - CLI ora supporta `--help`.
-- Output CLI include conteggio issue per severita (`High`, `Medium`).
+- Output CLI con conteggio problemi per severita (`Alta`, `Media`).
 - Test aggiornati a 5 casi.
+- README con sezione di avvio rapido e problemi comuni.
 
 ## [0.1.0] - 2026-02-14
 ### Aggiunto

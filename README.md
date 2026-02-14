@@ -105,6 +105,8 @@ Approfondimento con riferimenti ufficiali: `docs/normativa-e-sanzioni.md`.
 - Controlla presenza attributo `lang` nel tag `<html>`.
 - Controlla presenza heading principale `<h1>`.
 - Cerca link senza testo o `aria-label`.
+- Cerca nel footer un link/indicazione alla **Dichiarazione di accessibilita** (controllo indicativo).
+- Cerca un canale di **feedback accessibilita** (email dedicata o form/pagina) (controllo indicativo).
 - Esporta report JSON con riepilogo problemi.
 
 ## Cosa non fa (ancora)

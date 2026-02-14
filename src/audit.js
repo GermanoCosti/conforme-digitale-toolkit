@@ -2,6 +2,24 @@ function lineOf(text, index) {
   return text.slice(0, index).split(/\r?\n/).length;
 }
 
+function normalizeText(s) {
+  return (s || "")
+    .toLowerCase()
+    .replace(/[àáâä]/g, "a")
+    .replace(/[èéêë]/g, "e")
+    .replace(/[ìíîï]/g, "i")
+    .replace(/[òóôö]/g, "o")
+    .replace(/[ùúûü]/g, "u")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractFooterHtml(html) {
+  const m = html.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/i);
+  return m ? m[0] : html;
+}
+
 export function auditHtml(html) {
   const issues = [];
 
@@ -94,6 +112,73 @@ export function auditHtml(html) {
         line: lineOf(html, match.index ?? 0)
       });
     }
+  }
+
+  // Controlli "molto italiani": dichiarazione di accessibilita e canale feedback (AGID/PA e soggetti obbligati).
+  // Regole volutamente semplici: cercano un link/indicazione, non sostituiscono una verifica legale.
+  const footerHtml = extractFooterHtml(html);
+  const footerNorm = normalizeText(footerHtml.replace(/<[^>]*>/g, " "));
+
+  // 1) Link alla dichiarazione di accessibilita
+  let hasDichiarazione = false;
+  for (const match of footerHtml.matchAll(/<a\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    const href = match[1] || "";
+    const text = normalizeText((match[2] || "").replace(/<[^>]*>/g, " "));
+    const hrefNorm = normalizeText(href);
+    const okText =
+      (text.includes("dichiarazione") && (text.includes("accessibilita") || text.includes("accessibility"))) ||
+      text.includes("accessibility statement");
+    const okHref =
+      (hrefNorm.includes("dichiarazione") && hrefNorm.includes("accessibil")) ||
+      hrefNorm.includes("accessibility-statement") ||
+      hrefNorm.includes("accessibilitystatement");
+    if (okText || okHref) {
+      hasDichiarazione = true;
+      break;
+    }
+  }
+  if (!hasDichiarazione) {
+    issues.push({
+      rule: "dichiarazione-accessibilita",
+      severity: "medium",
+      message:
+        "Non trovato un link/testo riconoscibile alla Dichiarazione di accessibilita (es. nel footer).",
+      line: 1
+    });
+  }
+
+  // 2) Meccanismo di feedback per segnalazioni (email dedicata, form, pagina contatti accessibilita)
+  let hasFeedback = false;
+  const mailtoMatches = [...footerHtml.matchAll(/<a\b[^>]*href\s*=\s*["']mailto:([^"'>\s]+)[^"']*["'][^>]*>/gi)];
+  for (const m of mailtoMatches) {
+    const addr = normalizeText(m[1] || "");
+    if (addr.includes("access") || addr.includes("disabil") || addr.includes("support") || addr.includes("urp")) {
+      hasFeedback = true;
+      break;
+    }
+  }
+  if (!hasFeedback) {
+    const hasFeedbackWords =
+      footerNorm.includes("feedback accessibil") ||
+      footerNorm.includes("segnala") ||
+      footerNorm.includes("segnalazione") ||
+      footerNorm.includes("problemi di accessibil") ||
+      footerNorm.includes("contatta") && footerNorm.includes("accessibil");
+    const hasFormLike = /<form\b[^>]*(id|class|action)\s*=\s*["'][^"']*(feedback|accessibil|segnal)[^"']*["'][^>]*>/i.test(
+      footerHtml
+    );
+    if (hasFeedbackWords || hasFormLike) {
+      hasFeedback = true;
+    }
+  }
+  if (!hasFeedback) {
+    issues.push({
+      rule: "feedback-accessibilita",
+      severity: "medium",
+      message:
+        "Non trovato un meccanismo di feedback per segnalazioni accessibilita (email dedicata o form/pagina).",
+      line: 1
+    });
   }
 
   return {

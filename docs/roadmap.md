@@ -20,4 +20,5 @@
 ## Fase 4 - Go-to-market Italia
 - Documentazione in italiano orientata PMI
 - Template remediation per agenzie web
+- Controlli dedicati AGID/EAA: dichiarazione di accessibilita + canale feedback
 - Partnership con consulenti accessibilita

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Domanda generale
+    url: https://github.com/REPLACE_WITH_YOUR_GITHUB_USERNAME/accessibility-compliance-toolkit/discussions
+    about: Usa Discussions per domande non legate a bug/feature.
